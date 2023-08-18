@@ -142,35 +142,44 @@
             }
 
             let v_htag = document.getElementById("result");
-            v_htag.innerHTML = "입력한 아이디:"+ v_id.value ;
-            v_htag.innerHTML +="<br>입력한 비밀번호:" +v_pw.value;
-            v_htag.innerHTML +="<br>성별:"+ f_cgGender(genderChecked) ;
-            v_htag.innerHTML += "<br>사이트 방문 사유:"+ f_cgReason(reasonChecked);
+            v_htag.innerHTML = "입력한 아이디:" + v_id.value;
+            v_htag.innerHTML += "<br>입력한 비밀번호:" + v_pw.value;
+            v_htag.innerHTML += "<br>성별:" + f_cgGender(genderChecked);
+            v_htag.innerHTML += "<br>사이트 방문 사유:" + f_arrayToString(reasonChecked);
         }
 
-        function f_cgGender(p_gender){
-            if(p_gender == 'male') {
+        function f_arrayToString(p_array) {
+            let v_str = "";
+            for (let i = 0; i < p_array.length; i++) {
+                // for문의 맨 마지막의 경우엔 콤마 안붙이기
+                if (i == p_array.length - 1) {
+                    v_str += f_cgReason[p_array[i]];
+                } else {
+                    v_str += f_cgReason[p_array[i]] + ",";
+                }
+            }
+            return v_str;
+        }
+
+        function f_cgReason(p_reason){
+            if(p_reason == 'friend'){
+                return "지인";
+            }else if(p_reason == 'job'){
+                return '직장';
+            }else if(p_reason == 'search'){
+                return '검색';
+            }else{p_reason == 'etc'}
+            return '기타';
+        }
+
+        function f_cgGender(p_gender) {
+            if (p_gender == 'male') {
                 return '남성';
-            }else if(p_gender == 'female'){
+            } else if (p_gender == 'female') {
                 return '여성';
             }
         }
 
-
-        function f_cgReason(p_reason){
-            if(p_reason == 'friend') {
-                return '친구';
-            }else if(p_reason == 'job'){
-                return '직장';
-        }
-    }
-    function f_cgReason(p_reason){
-        if(p_reason == 'search') {
-            return '검색';
-        }else if(p_reason == 'etc'){
-            return '기타';
-        }
-    }
 
 
 

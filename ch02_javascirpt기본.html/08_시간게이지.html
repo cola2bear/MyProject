@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>시간 게이지</title>
+    <style>
+        #bar {
+            width: 200px;
+            height: 30px;
+            border: 2px solid black;
+        }
+
+        #timer {
+            width: 100%;
+            height: 100%;
+            background-color: darkblue;
+        }
+
+        .container {
+            display: flex;
+        }
+
+        img {
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div id="count">30</div>
+        <div id="bar">
+            <div id="timer"></div>
+        </div>
+        <img onclick="f_reset()" width="30" height="30"
+            src="data:image/png;base64,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"
+            alt="">
+    </div>
+    <script>
+        const v_count = document.getElementById("count");
+        const v_timer = document.getElementById("timer");
+        let cnt = parseInt(v_count.innerHTML);
+        
+        function f_time() {
+            
+            cnt--;
+            
+            v_count.innerHTML = cnt;
+
+            let ratio = cnt / 30 * 100;
+            v_timer.style.width = ratio + "%";
+
+            if (cnt == 0) {
+                return;
+            }
+
+            setTimeout(f_time, 1000);
+        }
+
+        setTimeout(f_time, 1000);
+        
+        function f_reset() {
+            cnt = 30;
+            v_count.innerHTML =cnt;
+            v_timer.style.width = "100%";
+        }
+        
+
+    </script>
+</body>
+
+</html>

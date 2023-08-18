@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>transform</title>
+    
+</head>
+
+<body>
+    <div class="container">
+        <div>
+            <img id="roulette" onclick="f_rotate()" height="90%" src="../resources/images/룰렛.jpeg" alt="">
+        </div>
+        <div id="coin" onclick="f_rotateY()">$</div>
+        <div class="space">
+            <div id="earth"></div>
+            <div id="moon" onclick="f_moon()"></div>
+        </div>
+    </div>
+
+    <script>
+        const v_roulette = document.getElementById("roulette");
+
+        let v_deg = 0;
+        function f_rotate() {
+            v_deg += 10;
+            v_roulette.style.transform = "rotate(" + v_deg + "deg)";
+
+            setTimeout(f_rotate, 50)
+        }
+
+        const v_coin = document.getElementById("coin");
+        let c_dtg = 0;
+        function f_rotateY() {
+            c_deg += 5;
+            v_coin.style.transform = "rotateY("+c_deg+"d)";
+            
+            setTimeout(f_rotateY, 50);
+        }
+
+        const v_moon = document.getElementById("moon");
+        let m_deg = 0;
+        function f_moon(){
+            m_deg += 10;
+            v_moon.style.transform = "rotateY("+m_deg+"deg)";
+
+            setTimeout(f_moon, 50);
+        }
+
+        
+
+    </script>
+</body>
+
+</html>

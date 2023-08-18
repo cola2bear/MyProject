@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>표준 체중 계산기</title>
+</head>
+<style>
+    .container{
+        align-items: center;
+        justify-content: center;
+        box-shadow: 1px 1px 5px 1px skyblue;
+        border-radius: 20px;
+        overflow: hidden;
+        width: 500px;
+        padding-left: 60px;
+    }
+    .container .table{
+        padding-left: 20px;
+    }
+    .container .math{
+        text-align: center;
+        align-items: center;
+        justify-content: center;
+        background-color: rgb(0, 153, 255);
+        color: white;
+        border-radius: 10px;
+        height: 40px;
+        cursor: pointer;
+    }
+</style>
+<body>
+    <div class="container">
+        <h2>표준 체중 계산기</h2>
+        <table>
+            <tr>
+                <td>키(cm): <br> <input id="inputCm" type="text"></td>
+                <td>몸무게(kg): <br> <input id="inputKg" type="text"></td>
+            </tr>
+            <tr>
+                <td><br>남성<input type="radio" name = "gender" value = "male" checked>
+                여성<input type="radio" name = "gender" value = "female" checked></td>
+            </tr>
+            <tr>
+                <td colspan="2"><div class="math" onclick="f_regist2()">계산하기</div></td>
+            </tr>
+        </table>
+        <h2 id="result"> </h2>
+    </div>
+    <script>
+        const v_cm = document.getElementById("inputCm");
+        const v_kg = document.getElementById("inputKg");
+        const v_gender = document.getElementsByName("gender");
+        const v_result = document.getElementById("result");
+
+        function f_regist2() {
+            // 사용자가 입력한 키랑 몸무게를 실수형 숫자로 변환
+            const key = parseFloat(v_cm.value) / 100;
+            const weight = parseFloat(v_kg.value);
+
+            // 성별을 확인하는 단계
+            let genderChecked = "";
+            for (let i = 0; i < v_gender.length; i++) {
+                if (v_gender[i].checked) {
+                    genderChecked = v_gender[i].value;
+                }
+            }
+
+            let standardWeight = 0;
+            // 표준체중 구하기
+            if (genderChecked === "male") {
+                standardWeight = 22 * (key * key);
+            } else if (genderChecked === "female") {
+                standardWeight = 21 * (key * key);
+            }
+
+            // 비만도 계산공식
+            const bmi = (weight / standardWeight) * 100;
+
+            
+            v_result.innerHTML = "적합한 표준 체중은 " + standardWeight.toFixed(2) + "kg 이며, "
+            v_result.innerHTML += "<br>현재 비만도는 " + f_bmi(bmi) + "입니다. "
+        }
+        
+        function f_bmi(bmi) {
+            if(bmi < 90) {
+                return "저체중";
+            } else if(bmi >= 90 && bmi < 110) {
+                return "정상 체중";
+            } else if(bmi >= 110 && bmi < 120) {
+                return "과체중";
+            } else if(bmi >= 120 && bmi < 130) {
+                return "경도 비만";
+            } else if(bmi >= 130 && bmi < 160) {
+                return "중경도 비만";
+            } else {
+                return "고도 비만";
+            }
+        }
+        </script>
+</body>
+</html>

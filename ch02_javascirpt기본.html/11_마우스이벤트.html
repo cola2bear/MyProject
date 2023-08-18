@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>마우스이벤트</title>
+
+    <style>
+        .container{
+            width: 500px;
+            height: 500px;
+
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+
+            border: 2px solid black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+        #myImg{
+            /* 이미지 태그를 움직이게 하기 위함 */
+            position: relative;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- onmousewheel: 현재 태그에 마우스 커서가 
+            놓여있는 상태로 마우스 휠을 굴렸을때 
+            실행되는 이벤트 -->
+        <!-- onmouseover: 현재 태그 위에 마우스 커서가 놓이면 실행 -->
+        <!-- onmousedown: 마우스 버튼을 누르면 실행 -->
+        <!-- onmouseup: 누른 버튼에 손을 떼면 실행 -->
+        <!-- onclick: 마우스 버튼을 누르고 떼면 실행 -->
+        <!-- onmouseup: 마우스 커서가 움직이면 실행 -->
+        <!-- onmouseout: 마우스 커서가 벗어나면 실행 -->
+        <img id="myImg" onmousewheel="f_wheel()" onmouseover="f_over()" onmousedown="f_down()" onmouseup="f_up()" onmousemove="f_move()" onmouseout="f_out()" draggable="false"
+        height="500px" src="data:image/jpeg;base64,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" alt="">
+    </div>
+    <script>
+        const v_img = document.getElementById("myImg");
+
+        function f_wheel() {
+            // 휠을 올리면 이미지가 커지고
+            // 휠을 내리면 이미지가 작아진다.
+
+            // event함수의 경우 함수 내부에서
+            // event객체를 이용하여 연재 이벤트의
+            // 상황이나 이벤트의 대상이 되는 태그에 
+            // 접근할 수 있다. 
+            console.log(event.target);
+            // 휠을 올리면 음수, 내리면 양수
+            console.log(event.deltaY);
+
+            if(event.deltaY < 0) {
+                v_img.height += 20;
+            } else {
+                if(event.target.height <= 100) {
+                    return;
+                }
+                event.target.height -= 20;
+            }
+        }
+
+        function f_over() {
+            // 이미지 위에 마우스를 올리면
+            // 마우스의 커서를 변경
+            event.target.style.cursor = "grab"
+        }
+
+        function f_move() {
+            // 최초 이미지를 누른 시점의 마우스 커서 위치와
+            // 이동중인 마우스 커서 위치와의 차이 계산
+            let diffX = event.clientX - x;
+            let diffY = event.clientY - y;
+            if(v_isDown == false) {
+                return;
+            }
+            // 마우스 커서를 움직이면 이미지도 움직이게
+            // 이벤트 실행 당시의 마우스 커서의 위치
+            console.log("X: " + event.clientX);
+            console.log("Y: " + event.clientY);
+
+            if(!event.target.style.top) {
+                event.target.style.top = "0px";
+                event.target.style.left = "0px";
+            }
+
+            // 현재 이미지의 top, left값
+            // parseInt: "10" -> 10, 문자 10을 숫자 10으로 변경
+            let v_top = parseFloat(event.target.style.top);
+            let v_left = parseFloat(event.target.style.left);
+
+            event.target.style.top = v_top + diffY + "Px";
+            event.target.style.left = v_left + diffX + "Px";
+
+            // 현재 이동중인 마우스 커서의 위치를
+            // x, y에 덮어씌워 다음 실행시 계산에 사용되게끔함
+            x = event.clientX;
+            y = event.clientY;
+        }
+
+        let v_isDown = false;
+        let x = 0;
+        let y = 0;
+        function f_down() {
+            // 마우스 클릭을 해야만 f_move가 실행되도록 함
+            v_isDown = true;
+
+            event.target.style.cursor = "grabbing";
+
+            // 누른 시점의 마우스 커서 좌표 저장
+            x = event.clientX
+            y = event.clientY
+        }
+        function f_up() {
+            v_isDown = false;
+
+            event.target.style.cursor = "grab";
+        }
+        function f_out() {            
+            v_isDown = false;
+        }
+    </script>
+</body>
+</html>
