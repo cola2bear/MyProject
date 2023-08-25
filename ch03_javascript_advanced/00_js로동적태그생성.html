@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS로동적태그생성</title>
+    <style>
+        .container{
+            width: 500px;
+            height: 900px;
+            border: 2px solid black;
+            margin: auto;
+        }
+
+        .chat{
+            height: 90%;
+        }
+        .input-box{
+            height: 10%;
+            border-top: 1px solid black;
+            display: flex;
+            font-size: 20px;
+        }
+
+        .input-box > input[type=text]{
+            width: 78%;
+            height: 94%;
+            border: 0;
+
+        }
+        .input-box > button{
+            width: 20%;
+            height: 99%;
+            background-color: yellow;
+        }
+
+        .msg{
+            background-color: yellow;
+            padding-left: 6px;
+            padding-right: 6px;
+            padding-top: 4px;
+            padding-bottom: 4px;
+            border-radius: 5px;
+        }
+    
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="chat"></div>
+        <div class="input-box">
+            <input id="msg" type="text">
+            <button onclick="f_send()">전송</button>
+        </div>
+    </div>
+    
+    <script>
+        const v_msg = document.getElementById("msg");
+        const v_chat = document.getElementsByClassName("chat")[0];
+
+        function f_send(){
+            let v_val = v_msg.value;
+
+            v_chat.innerHTML += "<div class='msg'><span class ='msg'>"+ v_val +"</div></span>";
+            v_msg.value = "";
+        }
+    </script>
+</body>
+</html>

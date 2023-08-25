@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>운동지식</title>
+
+    <link rel="stylesheet" href="./style.css">
+
+</head>
+
+<body>
+    <div class="container">
+
+        <header>
+            <div id="logo">
+                <a href="./과제_사딕.html">
+                    <img width="120" height="90"
+                        src="https://png.pngtree.com/png-clipart/20220604/original/pngtree-fitness-gym-logo-png-png-image_7932229.png"
+                        alt="">
+                </a>
+            </div>
+
+
+            <div class="nav-bar">
+                <div class="nav">
+                <div>운동 소개</div>
+                <div>식단법</div>
+                <div>ETC</div>
+            </div>
+            <div class="drop-content">
+                <div>
+                    <a href="/ch03_javascript_advanced/홈페이지과제/text_운동이란.html">운동의 장점</a>
+                    <a href="">가슴</a>
+                    <a href="">등</a>
+                    <a href="">하체</a>
+                    <a href="">복부</a>
+                </div>
+                <div>
+                    <a href="">식단을 하는 이유</a>
+                    <a href="">식단하는 방법</a>
+                </div>
+                <div>
+                    <a href="">집에</a>
+                    <a href="">가고싶어요</a>                                        
+                </div>           
+            </div>
+        </div>
+        </header>
+
+        <article id="content">
+            <div class="main">
+                <img width="1500" height="400"
+                    src="https://mblogthumb-phinf.pstatic.net/20160513_284/jane761226_1463123830398dMGsW_JPEG/%B1%D9%B7%C2%BF%EE%B5%BF%2C_%B1%D9%B7%C2%BF%EE%B5%BF_%BC%F8%BC%AD%2C_%BF%FE%C0%CC%C6%AE_%C6%AE%B7%B9%C0%CC%B4%D7_%BC%F8%BC%AD%2C_%C7%EF%BD%BA%C0%E5_%BF%EE%B5%BF%BC%F8%BC%AD_%281%29.jpg?type=w800"
+                    alt="">
+            </div>
+            <div>
+                <ul id="mid">
+                    <li><a href="">루틴<img width="50" height="50"
+                                src="https://static.thenounproject.com/png/4704548-200.png" alt=""></a></li>
+                    <li><a href="">뭐할까 <img width="50" height="50"
+                                src="https://w7.pngwing.com/pngs/759/868/png-transparent-computer-icons-random-icons-miscellaneous-rim-random-icons.png"
+                                alt=""> </a></li>
+                    <li><a href="">스폰서 <img width="50" height="50"
+                                src="https://w7.pngwing.com/pngs/905/335/png-transparent-hamburger-list-menu-more-navigation-basic-ui-jumpicon-line-icon.png"
+                                alt=""> </a></li>
+                </ul>
+            </div>
+
+        </article>
+
+        <footer>
+
+            <div class="box2">
+                <img class="banner2" onclick="f_hedx()" src="/resources/images/hdex.jpeg" alt="">
+                <img class="banner2" onclick="f_under()" src="/resources/images/언더아머.jpg" alt="">
+                <img class="banner2" onclick="f_nike()" src="/resources/images/나이키.jpg" alt="">
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        const v_banner = document.getElementsByClassName("banner");
+        const v_banner2 = document.getElementsByClassName("banner2");
+
+        for (let i = 0; i < v_banner.length; i++) {
+            v_banner[i].style.zIndex = i;
+        }
+
+        function f_cgIndex() {
+            // v_banner[i]의 z-index가 1이면 2로
+            // 2이면 3으로, 3이면 1로 바꾸기.
+            for (let i = 0; i < v_banner.length; i++) {
+                v_banner[i].style.zIndex = (v_banner[i].style.zIndex + 1) % 3;
+            }
+            setTimeout(f_cgIndex, 3000);
+        }
+        f_cgIndex();
+
+        for (let i = 0; i < v_banner2.length; i++) {
+            v_banner2[i].style.zIndex = i;
+        }
+
+        function f_cgIndex2() {
+            for (let i = 0; i < v_banner2.length; i++) {
+                v_banner2[i].style.zIndex = (v_banner2[i].style.zIndex + 1) % 3;
+            }
+            setTimeout(f_cgIndex2, 3000);
+        }
+        f_cgIndex2();
+
+
+        function f_rank() {
+            window.open("https://www.rankingdak.com/")
+        }
+        function f_metri() {
+            window.open("https://metree.co.kr/index/")
+        }
+        function f_myp() {
+            window.open("https://www.myprotein.co.kr/")
+        }
+        function f_hedx() {
+            window.open("https://m.hdex.co.kr/")
+        }
+        function f_nike() {
+            window.open("https://www.nike.com/kr/")
+        }
+        function f_under() {
+            window.open("https://www.underarmour.co.kr/ko-kr/")
+        }
+
+    </script>
+</body>
+
+</html>
