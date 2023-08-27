@@ -14,7 +14,10 @@ a{
     text-decoration: none; /*링크에 밑줄 제거*/
 }
 
-.container{
+.container {
+    width: auto;
+    height: 1500px;
+    background-color: darkgray;
 }
 
 #logo {
@@ -68,20 +71,6 @@ nav li a{
     color: black;
 }
 
-    .container {
-    width: auto;
-    height: 1300px;
-    background-color: darkgray;
-}
-
-header {
-    width: auto;
-    height: 95px;
-    background-color: whitesmoke;
-
-    position: relative;
-
-}
 
 .main{
     background-color: ivory;

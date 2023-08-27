@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>하체</title>
+
+    <link rel="stylesheet" href="./style2.css">
+</head>
+
+<body>
+    <div class="container">
+        <div>
+            <div id="logo">
+
+                <img width="120" height="90"
+                    src="https://png.pngtree.com/png-clipart/20220604/original/pngtree-fitness-gym-logo-png-png-image_7932229.png"
+                    alt="">
+
+            </div>
+
+            <nav>
+                <div class="l_menu">
+                    <ul>
+                        <li><a href="./text_운동이란.html">운동의 장점</a></li>
+                        <li><a href="./가슴.html">가슴</a></li>
+                        <li><a href="./등.html">등</a></li>
+                        <li><a href="">하체</a></li>
+                        <li><a href="">복부</a></li>
+                    </ul>
+                </div>
+            </nav>
+
+            <div class="quick">
+                <!-- href에 특정 태그의 id를 넣으면 a태그 클릭시 -->
+                <!-- 해당 태그 상단으로 스크롤이 이동한다. -->
+                <a href="#top">▲</a>
+            </div>
+
+            <div  class="main">
+                <div id="h_img"><img width="700px" height="300px"
+                        src="https://th.bing.com/th/id/R.5f1c3a6bce547e203c49c14a27c1db07?rik=sCmIxxavW%2fw%2bQw&riu=http%3a%2f%2ft1.daumcdn.net%2fliveboard%2fjamiet%2fd8171439e20c4c859333334471609a1f.png&ehk=gUXCfQpn6ZIYU2dDX49zCifx6KelugBawwH5%2bBHL9GQ%3d&risl=&pid=ImgRaw&r=0" alt=""></div>
+                <br>
+                <div id="main_back">
+                <div>
+                    <h2>하체 운동</h2>
+                    <img src="/resources/images/스크린샷 2023-08-27 020548.png" alt="">
+                </div>
+                <br>
+                <div>
+                    <h3>1.스쿼트</h3>
+                    <br>
+                    바벨 또는 덤벨을 들고 무릎 관절을 굽혔다 펴는 행동을 반복함으로써,
+                    <br>
+                    하반신의 대퇴사두근과 하퇴삼두근, 대둔근, 중전근 등의 근육을 성장시키는 운동
+                    <br>
+                    <br>
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/50f62PSGY7k?si=bqGQINbLEQRmBMEY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                </div>
+                <br>
+                <div>
+                    <h3>2.레그 프레스</h3>
+                    <br>
+                    대퇴사두근과 둔근을 강화시켜주는 대표적이고 필수적인 하체 운동이다.
+                    <br>
+                    <br>
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/EV0F_3S7Sks?si=iZxn7Pghxg3eyVYM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                </div>
+                <br>
+                <div>
+                    <h3>3.레그 익스텐션</h3>
+                    <br>
+                    레그 익스텐션은 스쿼트라던지 런지같은 복합관절 운동이 아니라 대퇴사두만
+                    <br>
+                    제대로 타격할 수 있는 단순관절 운동이다.
+                    <br>
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/U51oR2MHtGc?si=ekrZyY0gv_O48DH_" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                </div>
+                <br>
+                <div>
+                    <h3>4.레그 컬</h3>
+                    <br>
+                    레그컬은 한국어로 무릎 구부리기 운동이라고 할 수 있습니다.
+                    <br>
+                    레그컬은 헴스트링 근육을 비롯한 대퇴이두근을 강화하는 효과를 갖고 있는 운동입니다.
+                    <br>
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/6I0NiRc6yww?si=9JQXEqR8XC3SnAnU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById("logo")
+            .addEventListener("click", () => {
+                location.href = "./과제_사딕.html";
+            })
+
+            window.addEventListener('load', function() {
+                const mainHeight = document.querySelector('.main').offsetHeight;
+                    document.querySelector('.container').style.height = mainHeight + 'px';
+            });
+    </script>
+</body>
+
+</html>
