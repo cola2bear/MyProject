@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>JSON 파일 검색 및 출력</title>
+</head>
+
+<body>
+
+    <button onclick="searchAndDisplay()">검색하기</button>
+    <input type="text" id="searchTerm" placeholder="검색어를 입력하세요">
+    <div id="searchResult"></div>
+
+    <script>
+        fetch('대전광역시_병원.json')
+            .then(response => response.json())
+            .then(data => {
+                // 검색할 특정 단어
+                const searchTerm = '';
+
+                // 데이터 배열을 순회하며 검색
+                const searchResults = data.filter(item => {
+                    // 검색어가 아이템의 특정 속성에 포함되어 있는지 확인 (예: item.text)
+                    return item.text.includes(searchTerm);
+                });
+
+                // 검색 결과를 출력
+                if (searchResults.length > 0) {
+                    console.log('검색 결과:');
+                    searchResults.forEach(result => {
+                        console.log(result);
+                    });
+                } else {
+                    console.log('검색 결과가 없습니다.');
+                }
+            })
+            .catch(error => console.error('데이터를 불러오는 중 오류 발생:', error));
+
+    </script>
+
+</body>
+
+</html>
